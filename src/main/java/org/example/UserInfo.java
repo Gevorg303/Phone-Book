@@ -1,6 +1,6 @@
 package org.example;
 
-public class CallHistory {
+public class UserInfo {
     String uuid;
     String lastName;
     String firstName;
@@ -11,7 +11,4 @@ public class CallHistory {
     String email;
     String address;
     String dateOfBirth;
-    Call[] calls;
-    /*У объекта "пользователь" может быть множество звонков
-    * А у объекта "звонок" только один пользователь*/
 }
