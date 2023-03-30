@@ -5,7 +5,7 @@ public class Call {
     CallHistory callHistory;
     String dateTimeCall[];/*когда был сделан звонок*/
 
-    String time;/*продолжительность звонка*/
+    byte time;/*продолжительность звонка*/
 
     Boolean status;/*мы позвонили или нам позвонили*/
 }

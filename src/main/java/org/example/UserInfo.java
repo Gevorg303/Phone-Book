@@ -1,7 +1,7 @@
 package org.example;
 
 public class UserInfo {
-    String uuid;
+    int uuid;
     String lastName;
     String firstName;
     String organizationPhoneNumber;

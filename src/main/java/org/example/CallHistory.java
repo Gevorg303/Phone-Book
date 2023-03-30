@@ -1,7 +1,7 @@
 package org.example;
 
 public class CallHistory {
-    String uuid;
+    int uuid;
     String lastName;
     String firstName;
     String organizationPhoneNumber;

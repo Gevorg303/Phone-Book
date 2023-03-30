@@ -1,7 +1,7 @@
 package org.example;
 
 public class MessageHistory {
-    String uuid;
+    int uuid;
     String lastName;
     String firstName;
     String phoneNumber;
