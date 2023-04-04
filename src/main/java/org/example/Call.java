@@ -1,11 +1,16 @@
 package org.example;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Call {
+
     /*У объекта звонок может быть только один пользователь*/
     CallHistory callHistory;
-    String dateTimeCall[];/*когда был сделан звонок*/
+    Date dateNow = new Date();
+    SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd 'и время' hh:mm:ss a zzz");
 
-    byte time;/*продолжительность звонка*/
+    short time;/*продолжительность звонка*/
 
     Boolean status;/*мы позвонили или нам позвонили*/
 }
