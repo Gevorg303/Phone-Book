@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) throws ParseException {
         Scanner scanner = new Scanner(System.in);
         PhoneBook phoneBook = new PhoneBook();
+        CallHistory callHistory = new CallHistory();
+        MessageHistory messageHistory = new MessageHistory();
         boolean isRunning = true;
 
         while (isRunning) {
@@ -14,7 +16,11 @@ public class Main {
             System.out.println("1 - Добавить контакт.");
             System.out.println("2 - Удалить контакт.");
             System.out.println("3 - Показать все контакты.");
-            System.out.println("4 - Выйти из телефонной книги.");
+            System.out.println("4 - Сделать звонок.");
+            System.out.println("5 - Показать историю звонков.");
+            System.out.println("6 - Написать сообщение.");
+            System.out.println("7 - Показать историю сообщений.");
+            System.out.println("8 - Выход.");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -33,6 +39,7 @@ public class Main {
                     System.out.println("Введите название организации: ");
                     String organization = scanner.nextLine();
                     phoneBook.addContact(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);
+                    System.out.println("Контакт успешно добавлен.");
                     break;
                 case 2:
                     System.out.println("Введите имя контакта, который хотите удалить: ");
@@ -40,9 +47,38 @@ public class Main {
                     phoneBook.removeContact(nameToRemove);
                     break;
                 case 3:
+                    phoneBook.addContact(fullName="Петя (это мы)",
+                            phoneNumber="89536446112",
+                            email="robor@mail.ru",
+                            address="Кострома",
+                            organizationPhoneNumber="23-54-12",
+                            organization="Дом деда мороза");
                     phoneBook.printContacts();
                     break;
                 case 4:
+                    System.out.println("Введите номер телефона контакта которому вы хотите позвонить: ");
+                    String num = scanner.nextLine();
+                    callHistory.addCall(num);
+                    System.out.println("Звонок успешно сделан на номер: " + num);
+                    break;
+                case 5:
+                    System.out.println("История звонков: ");
+                    callHistory.addHistory();
+                    break;
+                case 6:
+                    System.out.println("Введите номер на который вы хотите отправить сообщение: ");
+                    String messageSendingNumber=scanner.nextLine();
+
+                    System.out.println("Введите текст сообщения: ");
+                    String textMessages=scanner.nextLine();
+
+                    messageHistory.addMessage(messageSendingNumber, textMessages);
+                    System.out.println("Сообщение успешно отправлено!");
+                    break;
+                case 7:
+                    messageHistory.printContacts();
+                    break;
+                case 8:
                     isRunning = false;
                     break;
                 default:

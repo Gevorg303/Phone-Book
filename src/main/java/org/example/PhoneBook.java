@@ -4,18 +4,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneBook {
-    //Users[] users;
-
-    private Map<String, UserInfo> contacts;
+    public Map<String, UserInfo> contacts;
 
     public PhoneBook() {
         contacts = new HashMap<>();
     }
-
+//метод для поиска
+//    public void newCall(String value)
+//    {
+//        for (Map.Entry<String, UserInfo> entry : contacts.entrySet()) {
+//            String key = entry.getKey();
+//            if (key.equals(value)){
+//                System.out.println("Ehddddddddd");
+//            }
+//        }
+//    }
     public void addContact(String fullName, String phoneNumber, String email, String address, String organizationPhoneNumber, String organization) {
         UserInfo newContact = new UserInfo(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);
         contacts.put(fullName, newContact);
-        System.out.println("Контакт успешно добавлен.");
     }
 
     public void removeContact(String fullName) {
@@ -37,4 +43,6 @@ public class PhoneBook {
             }
         }
     }
+
+
 }

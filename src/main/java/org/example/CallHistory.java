@@ -1,10 +1,21 @@
 package org.example;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+
 
 public class CallHistory {
-    Call[] calls;
-    /*У объекта "пользователь" может быть множество звонков
-    * А у объекта "звонок" только один пользователь*/
+    ArrayList<String> arrayList = new ArrayList<>();
+
+    public void addCall(String unknownNumber) {
+        arrayList.add(unknownNumber);
+    }
+    public void addHistory() {
+        if (arrayList.isEmpty()) {
+            System.out.println("История пуста");
+        } else {
+            for (int i = 0; i < arrayList.size(); i++) {
+                System.out.println(arrayList.get(i));
+            }
+        }
+    }
 }

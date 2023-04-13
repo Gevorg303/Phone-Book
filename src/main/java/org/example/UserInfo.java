@@ -1,7 +1,6 @@
 package org.example;
 
 public class UserInfo {
-    String uuid;
     String fullName;
     String organizationPhoneNumber;
     String phoneNumber;
@@ -21,6 +20,6 @@ public class UserInfo {
     @Override
     public String toString() {
         return "Имя: " + fullName + ", Номер телефона: " + phoneNumber + ", Е-маил: " + email +
-                ", Адрес: " + address + ", Номер организации: " + organizationPhoneNumber + ", Название организации" + organization;
+                ", Адрес: " + address + ", Номер организации: " + organizationPhoneNumber + ", Название организации: " + organization;
     }
 }

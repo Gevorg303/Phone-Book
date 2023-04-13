@@ -1,11 +1,22 @@
 package org.example;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MessageHistory {
-    Message[] message;
-    /* У объекта "пользователь" может быть множество сообщений
-     * А у объекта "сообщения" только один пользователь*/
+    public Map<String, String> messageContacts = new HashMap<>();
 
+    public void addMessage(String messageSendingNumber,String textMessages){
+        messageContacts.put(messageSendingNumber, textMessages);
+    }
+    public void printContacts() {
+        if (messageContacts.isEmpty()) {
+            System.out.println("История сообщений пуста.");
+        } else {
+            System.out.println("История сообщений:");
+            for (Map.Entry<String, String> entry : messageContacts.entrySet()) {
+                System.out.println("Получатель: " + entry.getKey() + " Текст сообщения: " + entry.getValue());
+            }
+        }
+    }
 }
