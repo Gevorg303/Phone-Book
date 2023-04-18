@@ -1,5 +1,7 @@
 package org.example;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +11,11 @@ public class Main {
         PhoneBook phoneBook = new PhoneBook();
         CallHistory callHistory = new CallHistory();
         MessageHistory messageHistory = new MessageHistory();
-        boolean isRunning = true;
 
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd 'и время' hh:mm:ss a zzz");
+
+        boolean isRunning = true;
         while (isRunning) {
             System.out.println("Выберите действие: ");
             System.out.println("1 - Добавить контакт.");
@@ -72,6 +77,7 @@ public class Main {
                     System.out.println("Введите текст сообщения: ");
                     String textMessages=scanner.nextLine();
 
+                    System.out.println("Дата отправки сообщения: "+formatForDateNow.format(dateNow));
                     messageHistory.addMessage(messageSendingNumber, textMessages);
                     System.out.println("Сообщение успешно отправлено!");
                     break;
