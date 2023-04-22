@@ -6,26 +6,24 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         PhoneBook phoneBook = new PhoneBook();
-        CallHistory callHistory = new CallHistory();
-        MessageHistory messageHistory = new MessageHistory();
-
-        Date dateNow = new Date();
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd 'и время' hh:mm:ss a zzz");
 
         boolean isRunning = true;
+
         while (isRunning) {
             System.out.println("Выберите действие: ");
             System.out.println("1 - Добавить контакт.");
             System.out.println("2 - Удалить контакт.");
             System.out.println("3 - Показать все контакты.");
             System.out.println("4 - Сделать звонок.");
-            System.out.println("5 - Показать историю звонков.");
-            System.out.println("6 - Написать сообщение.");
-            System.out.println("7 - Показать историю сообщений.");
-            System.out.println("8 - Выход.");
+            System.out.println("5 - Показать всю историю звонков.");
+            System.out.println("6 - Показать историю звонков с конкретным контактом.");
+            System.out.println("7 - Написать сообщение.");
+            System.out.println("8 - Показать всю историю сообщений.");
+            System.out.println("9 - Показать историю сообщений с конкретным контактом..");
+            System.out.println("10 - Выход.");
             int choice = scanner.nextInt();
             scanner.nextLine();
 
@@ -52,39 +50,47 @@ public class Main {
                     phoneBook.removeContact(nameToRemove);
                     break;
                 case 3:
-                    phoneBook.addContact(fullName="Петя (это мы)",
-                            phoneNumber="89536446112",
-                            email="robor@mail.ru",
-                            address="Кострома",
-                            organizationPhoneNumber="23-54-12",
-                            organization="Дом деда мороза");
+
                     phoneBook.printContacts();
                     break;
                 case 4:
                     System.out.println("Введите номер телефона контакта которому вы хотите позвонить: ");
                     String num = scanner.nextLine();
-                    callHistory.addCall(num);
+
+                    CallHistory callHistory = new CallHistory(num);
+                    phoneBook.addCall(callHistory);
                     System.out.println("Звонок успешно сделан на номер: " + num);
                     break;
                 case 5:
-                    System.out.println("История звонков: ");
-                    callHistory.addHistory();
+                    phoneBook.printCallHistory();
                     break;
                 case 6:
+                    System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю звонков: ");
+                    String number = scanner.nextLine();
+                    phoneBook.contactsCallHistory(number);
+                    break;
+                case 7:
                     System.out.println("Введите номер на который вы хотите отправить сообщение: ");
                     String messageSendingNumber=scanner.nextLine();
 
                     System.out.println("Введите текст сообщения: ");
                     String textMessages=scanner.nextLine();
 
-                    System.out.println("Дата отправки сообщения: "+formatForDateNow.format(dateNow));
-                    messageHistory.addMessage(messageSendingNumber, textMessages);
+                    Date dateNowMessage = new Date();
+
+                    MessageHistory messageHistory = new MessageHistory(messageSendingNumber, textMessages, dateNowMessage);
+                    phoneBook.addMessage(messageHistory);
                     System.out.println("Сообщение успешно отправлено!");
                     break;
-                case 7:
-                    messageHistory.printContacts();
-                    break;
                 case 8:
+                    phoneBook.printMessageHistory();
+                    break;
+                case 9:
+                    System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю сообщений: ");
+                    String numberM = scanner.nextLine();
+                    phoneBook.contactsMessageHistory(numberM);
+                    break;
+                case 10:
                     isRunning = false;
                     break;
                 default:

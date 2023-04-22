@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 
 public class CallHistory {
-    ArrayList<String> arrayList = new ArrayList<>();
+    public String unknownNumber;
 
-    public void addCall(String unknownNumber) {
-        arrayList.add(unknownNumber);
+    public CallHistory(String unknownNumber) {
+        this.unknownNumber = unknownNumber;
     }
-    public void addHistory() {
-        if (arrayList.isEmpty()) {
-            System.out.println("История пуста");
-        } else {
-            for (int i = 0; i < arrayList.size(); i++) {
-                System.out.println(arrayList.get(i));
-            }
-        }
+
+    @Override
+    public String toString() {
+        return unknownNumber;
     }
 }

@@ -1,22 +1,22 @@
 package org.example;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MessageHistory {
-    public Map<String, String> messageContacts = new HashMap<>();
+    String messageSendingNumber;
+    String textMessages;
+    Date dateNowMessage;
 
-    public void addMessage(String messageSendingNumber,String textMessages){
-        messageContacts.put(messageSendingNumber, textMessages);
+    public MessageHistory(String messageSendingNumber, String textMessages, Date dateNowMessage) {
+        this.messageSendingNumber = messageSendingNumber;
+        this.textMessages = textMessages;
+        this.dateNowMessage = dateNowMessage;
     }
-    public void printContacts() {
-        if (messageContacts.isEmpty()) {
-            System.out.println("История сообщений пуста.");
-        } else {
-            System.out.println("История сообщений:");
-            for (Map.Entry<String, String> entry : messageContacts.entrySet()) {
-                System.out.println("Получатель: " + entry.getKey() + " Текст сообщения: " + entry.getValue());
-            }
-        }
+
+    @Override
+    public String toString() {
+        return "Кому отправили: " + messageSendingNumber + "    Текст сообщения: " + textMessages + "   Дата отправки сообщения: " + dateNowMessage;
     }
 }
