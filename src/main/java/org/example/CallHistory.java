@@ -1,17 +1,20 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CallHistory {
-    public String unknownNumber;
+    public List<Call> callList;
 
-    public CallHistory(String unknownNumber) {
-        this.unknownNumber = unknownNumber;
+    public CallHistory() {
+        callList = new ArrayList<>();
     }
-
+    public List<Call> getCall() {
+        return callList;
+    }
     @Override
     public String toString() {
-        return unknownNumber;
+        return "История звонков: "+getCall();
     }
 }

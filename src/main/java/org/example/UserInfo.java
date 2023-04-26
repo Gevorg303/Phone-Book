@@ -19,7 +19,7 @@ public class UserInfo {
 
     @Override
     public String toString() {
-        return "Имя: " + fullName + ", Номер телефона: " + phoneNumber + ", Е-маил: " + email +
+        return "\nИмя: " + fullName + ", Номер телефона: " + phoneNumber + ", Е-маил: " + email +
                 ", Адрес: " + address + ", Номер организации: " + organizationPhoneNumber + ", Название организации: " + organization;
     }
 }

@@ -1,22 +1,17 @@
 package org.example;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MessageHistory {
-    String messageSendingNumber;
-    String textMessages;
-    Date dateNowMessage;
-
-    public MessageHistory(String messageSendingNumber, String textMessages, Date dateNowMessage) {
-        this.messageSendingNumber = messageSendingNumber;
-        this.textMessages = textMessages;
-        this.dateNowMessage = dateNowMessage;
+    public List<Message> messageList;
+    public MessageHistory() {
+        messageList = new ArrayList<>();
     }
-
+    public List<Message> getMessage() {
+        return messageList;
+    }
     @Override
     public String toString() {
-        return "Кому отправили: " + messageSendingNumber + "    Текст сообщения: " + textMessages + "   Дата отправки сообщения: " + dateNowMessage;
+        return "История сообщений: "+messageList;
     }
 }

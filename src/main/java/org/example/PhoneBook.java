@@ -1,93 +1,92 @@
 package org.example;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class PhoneBook {
-    public Map<String, UserInfo> contacts;
-    public Map<CallHistory, Date> callMap;
-    public Map<String, MessageHistory> messageContacts;
-
-    public PhoneBook() {
-        contacts = new HashMap<>();
-        callMap= new HashMap<>();
-        messageContacts = new HashMap<>();
-    }
+public class PhoneBook extends Users{
+    MessageHistory messageHistory = new MessageHistory();
+    CallHistory callHistory = new CallHistory();
 
     public void addContact(String fullName, String phoneNumber, String email, String address, String organizationPhoneNumber, String organization) {
         UserInfo newContact = new UserInfo(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);
-        contacts.put(fullName, newContact);
+        userInfoList.add(newContact);
     }
 
     public void removeContact(String fullName) {
-        if (contacts.containsKey(fullName)) {
-            contacts.remove(fullName);
-            System.out.println("Контакт успешно удален.");
-        } else {
+        int k=0;
+        for (int i=0; i<userInfoList.size(); i++) {
+            if (userInfoList.get(i).fullName.equals(fullName)) {
+                k++;
+                userInfoList.remove(i);
+                System.out.println("Контакт успешно удален.");
+            }
+        }
+        if(k==0) {
             System.out.println("Контакт не найден.");
         }
     }
 
     public void printContacts() {
-        if (contacts.isEmpty()) {
-            System.out.println("Телефонная книга пуста.");
-        } else {
-            System.out.println("Телефонная книга:");
-            for (UserInfo contact : contacts.values()) {
-                System.out.println(contact);
-            }
-        }
+        System.out.println(userInfoList);
     }
 
-    public void addCall(CallHistory callHistory) {
-        Date dateNow = new Date();
-        callMap.put(callHistory, dateNow);
+    public void addCall(String num) {
+        Date dateNowCall = new Date();
+        Call call = new Call(num, dateNowCall);
+        callHistory.callList.add(call);
+        System.out.println("Звонок успешно сделан на номер: " + num);
     }
 
     public void printCallHistory() {
-        if (callMap.isEmpty()) {
-            System.out.println("История пуста");
-        } else {
-            System.out.println("История звонков: ");
-            for (Map.Entry<CallHistory, Date> entry : callMap.entrySet()) {
-                System.out.println("Кому звонили: " + entry.getKey() + " Когда звонили: " + entry.getValue());
-            }
-        }
+        System.out.println(callHistory);
     }
 
-    public void addMessage(MessageHistory messageHistory) {
-        messageContacts.put(messageHistory.textMessages, messageHistory);
+    public void addMessage(String messageSendingNumber, String textMessages) {
+        Date dateNowMessage = new Date();
+        Message message = new Message(messageSendingNumber, textMessages, dateNowMessage);
+        messageHistory.messageList.add(message);
+        System.out.println("Сообщение успешно отправлено на номер: " + messageSendingNumber);
     }
 
     public void printMessageHistory() {
-        if (messageContacts.isEmpty()) {
-            System.out.println("История сообщений пуста.");
-        } else {
-            System.out.println("История сообщений:");
-            for (Map.Entry<String, MessageHistory> entry : messageContacts.entrySet()) {
-                //System.out.println(entry.getKey());
-                System.out.println(entry.getValue());
+        System.out.println(messageHistory);
+    }
 
+    public void contactsCallHistory(String num) {
+        int k = 0;
+        for (int i = 0; i < callHistory.callList.size(); i++) {
+            if (callHistory.callList.get(i).number.equals(num)) {
+                k++;
+                System.out.println(callHistory.callList.get(i));
             }
         }
-    }
-    public void contactsCallHistory(String number){
-        for (Map.Entry<CallHistory, Date> entry : callMap.entrySet()){
-            CallHistory callHistory = entry.getKey();
-            Date date = entry.getValue();
-            if (callHistory.unknownNumber.equals(number)){
-                System.out.println("Номер: "+callHistory.unknownNumber + "  Дата звонка: "+date);
-            }
+        if (k == 0) {
+            System.out.println("Звонков с данным контактом не найдено");
         }
     }
-    public void contactsMessageHistory(String number){
-        for (Map.Entry<String, MessageHistory> entry : messageContacts.entrySet()){
-            //String messageSendingNumber = entry.getKey();
-            MessageHistory messageHistory = entry.getValue();
-            if (messageHistory.messageSendingNumber.equals(number)){
-                System.out.println("Номер: "+messageHistory.messageSendingNumber + "  Текст сообщения: "+ messageHistory.textMessages+"   Дата отправки сообщения: "+messageHistory.dateNowMessage);
+
+    public void contactsMessageHistory(String num) {
+        int k = 0;
+        for (int i = 0; i < messageHistory.messageList.size(); i++) {
+            if (messageHistory.messageList.get(i).messageSendingNumber.equals(num)) {
+                k++;
+                System.out.println(messageHistory.messageList.get(i));
             }
+        }
+        if (k == 0) {
+            System.out.println("Сообщений с данным контактом не обнаружено");
+        }
+    }
+    public void infoContacts(String number){
+        int k=0;
+        for (int i=0; i<userInfoList.size(); i++) {
+            if (userInfoList.get(i).phoneNumber.equals(number)) {
+                k++;
+
+                System.out.println(userInfoList.get(i));
+            }
+        }
+        if(k==0) {
+            System.out.println("Контакт не найден.");
         }
     }
 }

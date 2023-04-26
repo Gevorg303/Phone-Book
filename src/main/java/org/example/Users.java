@@ -1,12 +1,15 @@
 package org.example;
 
-public class Users {
-    UserInfo userInfo;
-    CallHistory callHistory;
-    MessageHistory messageHistory;
-    public Users(UserInfo userInfo, CallHistory callHistory, MessageHistory messageHistory){
-        this.userInfo=userInfo;
-        this.callHistory=callHistory;
-        this.messageHistory=messageHistory;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Users{
+    public List<UserInfo> userInfoList;
+    public List<CallHistory> callHistoryList;
+    public List<MessageHistory> messageHistoryList;
+    public Users(){
+        userInfoList=new ArrayList<>();
+        callHistoryList=new ArrayList<>();
+        messageHistoryList=new ArrayList<>();
     }
 }
