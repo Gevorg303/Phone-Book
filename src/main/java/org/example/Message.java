@@ -14,6 +14,6 @@ public class Message {
     }
     @Override
     public String toString() {
-        return "\nНомер на который отправили сообщение: "+messageSendingNumber + "  Текст сообщения: "+textMessages;
+        return "\nНомер на который отправили сообщение: "+messageSendingNumber + "  Текст сообщения: "+textMessages + "    Дата отпрвки сообщения: " + dateNowMessage;
     }
 }
