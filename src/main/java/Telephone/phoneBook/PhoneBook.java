@@ -1,10 +1,8 @@
-package org.example;
+package Telephone.phoneBook;
 
 import java.util.*;
 
 public class PhoneBook extends Users{
-    MessageHistory messageHistory = new MessageHistory();
-    CallHistory callHistory = new CallHistory();
 
     public void addContact(String fullName, String phoneNumber, String email, String address, String organizationPhoneNumber, String organization) {
         UserInfo newContact = new UserInfo(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);

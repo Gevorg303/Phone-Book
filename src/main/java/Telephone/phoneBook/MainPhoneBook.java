@@ -1,12 +1,9 @@
-package org.example;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package Telephone.phoneBook;
 import java.util.Scanner;
 
-public class Main {
+public class MainPhoneBook {
 
-    public static void main(String[] args){
+    public static void main(){
         Scanner scanner = new Scanner(System.in);
         PhoneBook phoneBook = new PhoneBook();
 

@@ -1,4 +1,4 @@
-package org.example;
+package Telephone.phoneBook;
 
 public class UserInfo {
     String fullName;
