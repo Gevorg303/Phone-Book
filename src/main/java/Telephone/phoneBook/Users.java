@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Users{
-    /*
-    Контактов может быть много.
-    История звонов и история сообщений только одна
-    */
-    public List<UserInfo> userInfoList;
+    UserInfoHolder userInfoHolder;
     MessageHistory messageHistory;
     CallHistory callHistory;
     public Users(){
-        userInfoList=new ArrayList<>();
+        userInfoHolder = new UserInfoHolder();
         messageHistory = new MessageHistory();
         callHistory = new CallHistory();
     }

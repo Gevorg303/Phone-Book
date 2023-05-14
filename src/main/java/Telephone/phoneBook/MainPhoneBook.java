@@ -39,30 +39,29 @@ public class MainPhoneBook {
                     String organizationPhoneNumber = scanner.nextLine();
                     System.out.println("Введите название организации: ");
                     String organization = scanner.nextLine();
-                    phoneBook.addContact(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);
+                    phoneBook.userInfoHolder.addContact(fullName, phoneNumber, email, address, organizationPhoneNumber, organization);
                     System.out.println("Контакт успешно добавлен.");
                     break;
                 case 2:
                     System.out.println("Введите имя контакта, который хотите удалить: ");
                     String nameToRemove = scanner.nextLine();
-                    phoneBook.removeContact(nameToRemove);
+                    phoneBook.userInfoHolder.removeContact(nameToRemove);
                     break;
                 case 3:
-
-                    phoneBook.printContacts();
+                    phoneBook.userInfoHolder.printContacts();
                     break;
                 case 4:
                     System.out.println("Введите номер телефона контакта которому вы хотите позвонить: ");
                     String num = scanner.nextLine();
-                    phoneBook.addCall(num);
+                    phoneBook.callHistory.addCall(num);
                     break;
                 case 5:
-                    phoneBook.printCallHistory();
+                    phoneBook.callHistory.printCallHistory();
                     break;
                 case 6:
                     System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю звонков: ");
                     String number = scanner.nextLine();
-                    phoneBook.contactsCallHistory(number);
+                    phoneBook.callHistory.contactsCallHistory(number);
                     break;
                 case 7:
                     System.out.println("Введите номер на который вы хотите отправить сообщение: ");
@@ -71,23 +70,23 @@ public class MainPhoneBook {
                     System.out.println("Введите текст сообщения: ");
                     String textMessages=scanner.nextLine();
 
-                    phoneBook.addMessage(messageSendingNumber, textMessages);
+                    phoneBook.messageHistory.addMessage(messageSendingNumber, textMessages);
                     break;
                 case 8:
-                    phoneBook.printMessageHistory();
+                    phoneBook.messageHistory.printMessageHistory();
                     break;
                 case 9:
                     System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю сообщений: ");
                     String numberM = scanner.nextLine();
-                    phoneBook.contactsMessageHistory(numberM);
+                    phoneBook.messageHistory.contactsMessageHistory(numberM);
                     break;
                 case 10:
                     System.out.println("Введите номер телефона контакта информация о котором вы хотите посмотреть: ");
                     String number_search = scanner.nextLine();
                     System.out.println("Вся информация об этом пользоватле: ");
-                    phoneBook.infoContacts(number_search);
-                    phoneBook.contactsCallHistory(number_search);
-                    phoneBook.contactsMessageHistory(number_search);
+                    phoneBook.userInfoHolder.infoContacts(number_search);
+                    phoneBook.callHistory.contactsCallHistory(number_search);
+                    phoneBook.messageHistory.contactsMessageHistory(number_search);
                     break;
                 case 11:
                     isRunning = false;
