@@ -2,10 +2,10 @@ package Telephone.phoneBook;
 
 import java.util.*;
 
-public class MessageHistory {
+public class MessageHolder {
     public List<Message> messageList;
 
-    public MessageHistory() {
+    public MessageHolder() {
         messageList = new ArrayList<>();
     }
 

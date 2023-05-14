@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 
-public class CallHistory {
+public class CallHolder {
     public List<Call> callList;
 
-    public CallHistory() {
+    public CallHolder() {
         callList = new ArrayList<>();
     }
     public List<Call> getCall() {

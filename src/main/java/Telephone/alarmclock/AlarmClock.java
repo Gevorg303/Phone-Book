@@ -8,7 +8,7 @@ public class AlarmClock {
     public AlarmClock(){
         alarms = new ArrayList<>();
     }
-    protected String addAlarm(){
+    public String addAlarm(){
         try {
             System.out.println("Введите дату и время в формате ГГГГ-ММ-ДД ЧЧ:ММ:СС: ");
             String dateString = scanner.nextLine();
@@ -26,11 +26,11 @@ public class AlarmClock {
             return null;
         }
     }
-    protected void printAlarm(){
+    public void printAlarm(){
         System.out.println("Список установленных будильников: ");
         System.out.println(alarms);
     }
-    protected void removeAlarm(){
+    public void removeAlarm(){
         int k=0;
         System.out.println("Введите ключ будильника который вы хотите удалить: ");
         String key = scanner.nextLine();

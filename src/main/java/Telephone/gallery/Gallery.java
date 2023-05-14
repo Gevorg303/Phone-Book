@@ -9,21 +9,21 @@ public class Gallery {
     Scanner scanner = new Scanner(System.in);
     /* Любая фотография обязательно должна быть в каком то альбоме */
     List<Album> albumList;
-    protected Gallery(){
+    public Gallery(){
         albumList=new ArrayList<>();
     }
-    protected void addAlbum(){
+    public void addAlbum(){
         System.out.println("Введите название альбома: ");
         String name = scanner.nextLine();
         Album newAlbum = new Album(name);
         albumList.add(newAlbum);
         System.out.println("Альбом успешно создан");
     }
-    protected void printAlbum(){
+    public void printAlbum(){
         System.out.println("Список альбомов: ");
         System.out.println(albumList);
     }
-    protected void removeAlbum(){
+    public void removeAlbum(){
         System.out.println("Введите название альбома которое вы хотите удалить: ");
         String name = scanner.nextLine();
         int k=0;
@@ -38,7 +38,7 @@ public class Gallery {
             System.out.println("Альбом с таким названием не найден.");
         }
     }
-    protected void addPhoto(){
+    public void addPhoto(){
         System.out.println("Введите название альбома в которую вы хотите добавить фотографию: ");
         String nameAlbum = scanner.nextLine();
         int k=0;
@@ -61,7 +61,7 @@ public class Gallery {
             System.out.println("Альбом с таким названием не найден.");
         }
     }
-    protected void printPhoto(){
+    public void printPhoto(){
         System.out.println("Введите название альбома которое вы хотите открыть: ");
         String nameAlbum = scanner.nextLine();
         int k=0;
@@ -75,7 +75,7 @@ public class Gallery {
             System.out.println("Альбом с таким названием не найден.");
         }
     }
-    protected void removePhoto(){
+    public void removePhoto(){
         System.out.println("Введите название альбома из которого вы хотите удалить фотографию: ");
         String nameAlbum = scanner.nextLine();
         int k=0;

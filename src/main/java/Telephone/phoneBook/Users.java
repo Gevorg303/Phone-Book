@@ -1,15 +1,12 @@
 package Telephone.phoneBook;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Users{
-    UserInfoHolder userInfoHolder;
-    MessageHistory messageHistory;
-    CallHistory callHistory;
+    public UserInfoHolder userInfoHolder;
+    public MessageHolder messageHolder;
+    public CallHolder callHolder;
     public Users(){
         userInfoHolder = new UserInfoHolder();
-        messageHistory = new MessageHistory();
-        callHistory = new CallHistory();
+        messageHolder = new MessageHolder();
+        callHolder = new CallHolder();
     }
 }
