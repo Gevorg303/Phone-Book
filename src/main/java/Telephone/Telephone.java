@@ -117,22 +117,22 @@ public class Telephone {
                         scanner.nextLine();
                         switch (choiceGallery) {
                             case 1:
-                                gallery.addAlbum();
+                                gallery.galleryHolder.addAlbum();
                                 break;
                             case 2:
-                                gallery.removeAlbum();
+                                gallery.galleryHolder.removeAlbum();
                                 break;
                             case 3:
-                                gallery.printAlbum();
+                                gallery.galleryHolder.printAlbum();
                                 break;
                             case 4:
-                                gallery.addPhoto();
+                                gallery.galleryHolder.addPhoto();
                                 break;
                             case 5:
-                                gallery.printPhoto();
+                                gallery.galleryHolder.printPhoto();
                                 break;
                             case 6:
-                                gallery.removePhoto();
+                                gallery.galleryHolder.removePhoto();
                                 break;
                             case 7:
                                 keyGallery = false;
