@@ -3,10 +3,12 @@ package Telephone.phoneBook;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class CallHolder {
     public List<Call> callList;
+    Scanner scanner = new Scanner(System.in);
 
     public CallHolder() {
         callList = new ArrayList<>();
@@ -14,7 +16,9 @@ public class CallHolder {
     public List<Call> getCall() {
         return callList;
     }
-    public void addCall(String num) {
+    public void addCall() {
+        System.out.println("Введите номер телефона контакта которому вы хотите позвонить: ");
+        String num = scanner.nextLine();
         Date dateNowCall = new Date();
         Call call = new Call(num, dateNowCall);
         callList.add(call);

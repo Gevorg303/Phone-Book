@@ -4,12 +4,17 @@ import java.util.*;
 
 public class MessageHolder {
     public List<Message> messageList;
+    Scanner scanner = new Scanner(System.in);
 
     public MessageHolder() {
         messageList = new ArrayList<>();
     }
 
-    public void addMessage(String messageSendingNumber, String textMessages) {
+    public void addMessage() {
+        System.out.println("Введите номер на который вы хотите отправить сообщение: ");
+        String messageSendingNumber = scanner.nextLine();
+        System.out.println("Введите текст сообщения: ");
+        String textMessages = scanner.nextLine();
         Date dateNowMessage = new Date();
         Message message = new Message(messageSendingNumber, textMessages, dateNowMessage);
         messageList.add(message);

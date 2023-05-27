@@ -45,4 +45,24 @@ public class AlarmClock {
             System.out.println("Будильник с таким ключем не найден..");
         }
     }
+    @Override
+    public String toString() {
+        boolean keyAlarmClock = true;
+        while (keyAlarmClock) {
+            System.out.println("Выберите действие: ");
+            System.out.println("1 - Добавить новый будильник.");
+            System.out.println("2 - Удалить уже поставленный будильник.");
+            System.out.println("3 - Посмотреть установленные будильники.");
+            System.out.println("4 - Выход.");
+            int choiceAlarmClock = scanner.nextInt();
+            switch (choiceAlarmClock) {
+                case 1 -> System.out.println(addAlarm());
+                case 2 -> removeAlarm();
+                case 3 -> printAlarm();
+                case 4 -> keyAlarmClock = false;
+                default -> System.out.println("Неверный ввод. Попробуйте еще раз.");
+            }
+        }
+        return "Вы закрыли будильник";
+    }
 }
