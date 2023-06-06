@@ -1,5 +1,6 @@
 package Telephone.phoneBook;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PhoneBook{
@@ -34,15 +35,15 @@ public class PhoneBook{
                 case 1 -> userInfoHolder.addContact();
                 case 2 -> userInfoHolder.removeContact();
                 case 3 -> userInfoHolder.printContacts();
-                case 4 -> callHolder.addCall();
-                case 5 -> callHolder.printCallHistory();
+                //case 4 -> callHolder.addCall(call);
+                //case 5 -> callHolder.printCallHistory();
                 case 6 -> {
                     System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю звонков: ");
                     String number = scanner.nextLine();
                     callHolder.contactsCallHistory(number);
                 }
-                case 7 -> messageHolder.addMessage();
-                case 8 -> messageHolder.printMessageHistory();
+                //case 7 -> messageHolder.addMessage();
+                //case 8 -> messageHolder.printMessageHistory();
                 case 9 -> {
                     System.out.println("Введите номер телефона контакта с которым хотите посмотреть историю сообщений: ");
                     String numberM = scanner.nextLine();
@@ -61,5 +62,19 @@ public class PhoneBook{
             }
         }
         return "Вы закрыли телефонную книгу";
+    }
+
+    public void doNewCall(Call call) {
+        callHolder.addCall(call);
+    }
+    public List<Call> getCallHistory(String phoneNumber) {
+        return callHolder.printCallHistory(phoneNumber);
+    }
+
+    public void doNewMassage(Message message) {
+        messageHolder.addMessage(message);
+    }
+    public List<Message> getMessageHistory(String phoneNumber) {
+        return messageHolder.printMessageHistory(phoneNumber);
     }
 }

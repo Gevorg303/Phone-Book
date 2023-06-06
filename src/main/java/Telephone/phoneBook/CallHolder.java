@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class CallHolder {
     public List<Call> callList;
-    Scanner scanner = new Scanner(System.in);
 
     public CallHolder() {
         callList = new ArrayList<>();
@@ -16,16 +15,12 @@ public class CallHolder {
     public List<Call> getCall() {
         return callList;
     }
-    public void addCall() {
-        System.out.println("Введите номер телефона контакта которому вы хотите позвонить: ");
-        String num = scanner.nextLine();
-        Date dateNowCall = new Date();
-        Call call = new Call(num, dateNowCall);
+    public void addCall(Call call) {
         callList.add(call);
-        System.out.println("Звонок успешно сделан на номер: " + num);
+        System.out.println("Звонок успешно сделан на номер: " + call.number);
     }
-    public void printCallHistory() {
-        System.out.println(callList);
+    public List<Call> printCallHistory(String phoneNumber) {
+        return callList;
     }
     public void contactsCallHistory(String num) {
         int k = 0;

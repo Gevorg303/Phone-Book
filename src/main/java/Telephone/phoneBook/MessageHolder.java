@@ -4,25 +4,18 @@ import java.util.*;
 
 public class MessageHolder {
     public List<Message> messageList;
-    Scanner scanner = new Scanner(System.in);
 
     public MessageHolder() {
         messageList = new ArrayList<>();
     }
 
-    public void addMessage() {
-        System.out.println("Введите номер на который вы хотите отправить сообщение: ");
-        String messageSendingNumber = scanner.nextLine();
-        System.out.println("Введите текст сообщения: ");
-        String textMessages = scanner.nextLine();
-        Date dateNowMessage = new Date();
-        Message message = new Message(messageSendingNumber, textMessages, dateNowMessage);
+    public void addMessage(Message message) {
         messageList.add(message);
-        System.out.println("Сообщение успешно отправлено на номер: " + messageSendingNumber);
+        System.out.println("Сообщение успешно отправлено на номер: " + message.messageSendingNumber);
     }
 
-    public void printMessageHistory() {
-        System.out.println(messageList);
+    public List<Message> printMessageHistory(String phoneNumber) {
+        return messageList;
     }
 
     public void contactsMessageHistory(String num) {
