@@ -15,19 +15,12 @@ public class AlarmClock {
             return null;
         }
     }
-    public void removeAlarm(){
-        int k=0;
-        System.out.println("Введите ключ будильника который вы хотите удалить: ");
-        String key = "?";
+    public void removeAlarm(String key){
         for (int i=0; i<alarms.size(); i++) {
             if (alarms.get(i).getKey().equals(key)) {
-                k++;
                 alarms.remove(i);
                 System.out.println("Будильник успешно удален.");
             }
-        }
-        if(k==0) {
-            System.out.println("Будильник с таким ключем не найден..");
         }
     }
 

@@ -3,9 +3,9 @@ package Telephone.phoneBook;
 import java.util.Date;
 
 public class Message {
-    private String messageSendingNumber;
-    private String textMessages;
-    private Date dateNowMessage;
+    private final String messageSendingNumber;
+    private final String textMessages;
+    private final Date dateNowMessage;
 
     public String getMessageSendingNumber() {
         return messageSendingNumber;

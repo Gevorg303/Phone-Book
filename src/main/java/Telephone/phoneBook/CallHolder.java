@@ -16,13 +16,13 @@ public class CallHolder {
         System.out.println("Звонок успешно сделан на номер: " + call.getNumber());
     }
     public List<Call> printCallHistory(String phoneNumber) {
-
-        for (int i = 0; i < callList.size(); i++) {
-            if (callList.get(i).getNumber().equals(phoneNumber)) {
-                return Collections.singletonList(callList.get(i));
+        List<Call> matchingCall = new ArrayList<>();
+        for (Call call : callList) {
+            if (call.getNumber().equals(phoneNumber)) {
+                matchingCall.add(call);
             }
         }
-        return null;
+        return matchingCall;
     }
     @Override
     public String toString() {

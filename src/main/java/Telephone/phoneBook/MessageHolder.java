@@ -15,12 +15,13 @@ public class MessageHolder {
     }
 
     public List<Message> printMessageHistory(String phoneNumber) {
-        for (int i = 0; i < messageList.size(); i++) {
-            if (messageList.get(i).getMessageSendingNumber().equals(phoneNumber)) {
-                return Collections.singletonList(messageList.get(i));
+        List<Message> matchingMessages = new ArrayList<>();
+        for (Message message : messageList) {
+            if (message.getMessageSendingNumber().equals(phoneNumber)) {
+                matchingMessages.add(message);
             }
         }
-        return null;
+        return matchingMessages;
     }
     public List<Message> getMessage() {
         return messageList;

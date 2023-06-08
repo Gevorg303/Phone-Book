@@ -1,5 +1,7 @@
 package Telephone.gallery;
 
+import Telephone.phoneBook.Call;
+
 import java.util.*;
 
 public class GalleryHolder {
@@ -16,19 +18,12 @@ public class GalleryHolder {
         System.out.println("Список альбомов: ");
         return albumList;
     }
-    public void removeAlbum(){
-        System.out.println("Введите название альбома которое вы хотите удалить: ");
-        String name ="?";
-        int k=0;
+    public void removeAlbum(String name){
         for (int i=0; i<albumList.size(); i++) {
             if (albumList.get(i).getName().equals(name)) {
-                k++;
                 albumList.remove(i);
                 System.out.println("Альбом успешно удален.");
             }
-        }
-        if(k==0) {
-            System.out.println("Альбом с таким названием не найден.");
         }
     }
     public void addPhoto(Album album, Photo photo){
@@ -40,32 +35,24 @@ public class GalleryHolder {
         }
     }
     public List<Album> printPhoto(String nameAlbum){
+        List<Album> matchingAlbum = new ArrayList<>();
         for (Album album : albumList) {
             if (album.getName().equals(nameAlbum)) {
-                return Collections.singletonList(album);
+                matchingAlbum.add(album);
             }
         }
-        return null;
+        return matchingAlbum;
     }
-    public void removePhoto(){
-        System.out.println("Введите название альбома из которого вы хотите удалить фотографию: ");
-        String nameAlbum ="?";
-        int k=0;
-        for (int i=0; i<albumList.size(); i++) {
-            if (albumList.get(i).getName().equals(nameAlbum)) {
-                k++;
-                System.out.println("Введите названия фотографии которое вы хотите удалить: ");
-                String namePhoto = "?";
-                for (int j = 0; j< albumList.get(i).getPhotos().size(); j++){
-                    if (albumList.get(i).getPhotos().get(j).getName().equals(namePhoto)){
-                        albumList.get(i).getPhotos().remove(j);
+    public void removePhoto(String nameAlbum, String namePhoto){
+        for (Album album : albumList) {
+            if (album.getName().equals(nameAlbum)) {
+                for (int j = 0; j < album.getPhotos().size(); j++) {
+                    if (album.getPhotos().get(j).getName().equals(namePhoto)) {
+                        album.getPhotos().remove(j);
                         System.out.println("Фотография успешно удалена.");
                     }
                 }
             }
-        }
-        if(k==0) {
-            System.out.println("Альбом с таким названием не найден.");
         }
     }
 }
