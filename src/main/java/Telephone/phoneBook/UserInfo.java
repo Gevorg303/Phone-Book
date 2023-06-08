@@ -1,12 +1,20 @@
 package Telephone.phoneBook;
 
 public class UserInfo {
-    String fullName;
-    String organizationPhoneNumber;
-    String phoneNumber;
-    String organization;
-    String email;
-    String address;
+    private final String fullName;
+    private final String organizationPhoneNumber;
+    private final String phoneNumber;
+    private final String organization;
+    private final  String email;
+    private final String address;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
     public UserInfo(String fullName, String phoneNumber, String email, String address, String organizationPhoneNumber, String organization) {
         this.fullName = fullName;

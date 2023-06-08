@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Call{
     private Date dateNow;
-    public String number;
+    private String number;
     public Call(String number, Date dateNow) {
         this.number = number;
         this.dateNow = dateNow;

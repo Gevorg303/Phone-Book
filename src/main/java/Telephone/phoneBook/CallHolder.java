@@ -1,13 +1,9 @@
 package Telephone.phoneBook;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-
+import java.util.*;
 
 public class CallHolder {
-    public List<Call> callList;
+    private List<Call> callList;
 
     public CallHolder() {
         callList = new ArrayList<>();
@@ -17,22 +13,16 @@ public class CallHolder {
     }
     public void addCall(Call call) {
         callList.add(call);
-        System.out.println("Звонок успешно сделан на номер: " + call.number);
+        System.out.println("Звонок успешно сделан на номер: " + call.getNumber());
     }
     public List<Call> printCallHistory(String phoneNumber) {
-        return callList;
-    }
-    public void contactsCallHistory(String num) {
-        int k = 0;
+
         for (int i = 0; i < callList.size(); i++) {
-            if (callList.get(i).number.equals(num)) {
-                k++;
-                System.out.println(callList.get(i));
+            if (callList.get(i).getNumber().equals(phoneNumber)) {
+                return Collections.singletonList(callList.get(i));
             }
         }
-        if (k == 0) {
-            System.out.println("Звонков с данным контактом не найдено");
-        }
+        return null;
     }
     @Override
     public String toString() {

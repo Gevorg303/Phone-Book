@@ -1,17 +1,18 @@
 package Telephone.alarmclock;
 
-import javax.sound.midi.Sequence;
-import java.util.Date;
 import java.util.Random;
 
 public class Alarm {
-    Date date;/* ГГГГ-ММ-ДД ЧЧ:ММ:СС */
-    boolean vibration; /* вкл/выкл вибрацию */
-    String sequence; /* путь к мелодии*/
-    String key; /* уникальный идентификатор (3 значное число)*/
-    String description; /* комментарий к будильнику */
+    private final boolean vibration; /* вкл/выкл вибрацию */
+    private final String sequence; /* мелодия*/
+    private final String date;/* ГГГГ-ММ-ДД ЧЧ:ММ:СС */
+    private final String key; /* уникальный идентификатор (3 значное число)*/
+    private final String description; /* комментарий к будильнику */
+    public String getKey() {
+        return key;
+    }
 
-    public Alarm(Date date, boolean vibration, String sequence, String description) {
+    public Alarm(String date, boolean vibration, String sequence, String description) {
         this.key = generatedKey();
         this.date = date;
         this.vibration = vibration;

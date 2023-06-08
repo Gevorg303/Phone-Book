@@ -3,9 +3,21 @@ package Telephone.phoneBook;
 import java.util.Date;
 
 public class Message {
-    String messageSendingNumber;
-    String textMessages;
-    Date dateNowMessage;
+    private String messageSendingNumber;
+    private String textMessages;
+    private Date dateNowMessage;
+
+    public String getMessageSendingNumber() {
+        return messageSendingNumber;
+    }
+
+    public String getTextMessages() {
+        return textMessages;
+    }
+
+    public Date getDateNowMessage() {
+        return dateNowMessage;
+    }
 
     public Message(String messageSendingNumber, String textMessages, Date dateNowMessage) {
         this.messageSendingNumber = messageSendingNumber;

@@ -3,11 +3,23 @@ package Telephone.gallery;
 import java.util.Date;
 
 public class Photo {
-    public String name; /* К примеру: photo.png */
-    private Date date; /* Когда сделана фотография */
-    private short resolutionWidth;
-    private short resolutionHeight;
-    protected Photo(String name, Date date, short resolutionHeight, short resolutionWidth){
+    private final String name; /* К примеру: photo.png */
+    private final Date date; /* Когда сделана фотография */
+    private final short resolutionWidth;
+    private final short resolutionHeight;
+    public String getName() {
+        return name;
+    }
+    public Date getDate() {
+        return date;
+    }
+    public short getResolutionWidth() {
+        return resolutionWidth;
+    }
+    public short getResolutionHeight() {
+        return resolutionHeight;
+    }
+    public Photo(String name, Date date, short resolutionHeight, short resolutionWidth){
         this.name=name;
         this.date=date;
         this.resolutionHeight=resolutionHeight;

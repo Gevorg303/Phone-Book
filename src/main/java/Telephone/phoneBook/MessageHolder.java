@@ -3,7 +3,7 @@ package Telephone.phoneBook;
 import java.util.*;
 
 public class MessageHolder {
-    public List<Message> messageList;
+    private final List<Message> messageList;
 
     public MessageHolder() {
         messageList = new ArrayList<>();
@@ -11,26 +11,17 @@ public class MessageHolder {
 
     public void addMessage(Message message) {
         messageList.add(message);
-        System.out.println("Сообщение успешно отправлено на номер: " + message.messageSendingNumber);
+        System.out.println("Сообщение успешно отправлено на номер: " + message.getMessageSendingNumber());
     }
 
     public List<Message> printMessageHistory(String phoneNumber) {
-        return messageList;
-    }
-
-    public void contactsMessageHistory(String num) {
-        int k = 0;
         for (int i = 0; i < messageList.size(); i++) {
-            if (messageList.get(i).messageSendingNumber.equals(num)) {
-                k++;
-                System.out.println(messageList.get(i));
+            if (messageList.get(i).getMessageSendingNumber().equals(phoneNumber)) {
+                return Collections.singletonList(messageList.get(i));
             }
         }
-        if (k == 0) {
-            System.out.println("Сообщений с данным контактом не обнаружено");
-        }
+        return null;
     }
-
     public List<Message> getMessage() {
         return messageList;
     }
